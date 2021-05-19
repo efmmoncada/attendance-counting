@@ -1,0 +1,61 @@
+body {
+  background-color: lightgray;
+  font-family: 'Nanum Gothic', sans-serif;
+  margin: 0;
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 20px 0;
+}
+
+.heading img {
+  width: 8em;
+  height: 8em;
+}
+
+.site-title {
+  font-weight: 800;
+  font-size: 2.5em;
+}
+
+.instructs {
+  margin: 10px 0 10px 30px;
+  width: 70%;
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 80%;
+  margin: 0 10%;
+}
+
+.entry {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+
+}
+
+.entry span {
+  width: 33%;
+}
+
+
+
+.buttons {
+  margin: 20px 0;
+  width: 100%;
+}
+
+#add-entry-button, #sumbit-button {
+  display: inline;
+}
