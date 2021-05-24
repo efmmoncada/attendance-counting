@@ -4,9 +4,13 @@
     <meta charset="utf-8">
     <title>Spartan Academy Attendance</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.runtime.js" defer></script>
+    <script src="/entryTemplate.js" charset="utf-8" defer></script>
+    <script src="/attendance.js" charset="utf-8" defer></script>
   </head>
   <body>
     <div class="heading">
@@ -21,26 +25,27 @@
     </div>
 
     <div class="form">
+      <div class="date-container">
+        <h2>Today's Date:</h2>
+        <input type="date" class="date" placeholder="">
+      </div>
+
       <div class="entry">
         <span>
-          <h3>Today's Date:</h3>
-          <input type="date" name="date" class="date">
+          <input type="number" class="id-number" placeholder="ID Number">
         </span>
         <span>
-          <h3>Absent Student's First Name:</h3>
-          <input type="text" name="first-name" class="first-name">
+          <input type="text" class="first-name" placeholder="First Name">
         </span>
         <span>
-          <h3>Absent Student's Last Name:</h3>
-          <input type="text" name="last-name" class="last-name">
+          <input type="text" class="last-name" placeholder="Last Name">
         </span>
       </div>
+    </div>
 
-      <div class="buttons">
-        <button type="button" name="add-entry" id="add-entry-button">Add Student</button>
-        <button type="button" name="submit-button" id="submit-button">Submit</button>
-      </div>
-
+    <div class="buttons">
+      <button type="button" name="add-entry" id="add-entry-button">Add Student</button>
+      <button type="button" name="submit-button" id="submit-button">Submit</button>
     </div>
 
 
