@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
 })
 
 app.get('*', function (req, res) {
-  res.status(404).sendFile(path.join(__dirname, 'frontend', '404.html'))
+  res.status(404).sendFile(path.join(__dirname, '..', 'frontend', '404.html'))
 })
 
 function storeData(data) {

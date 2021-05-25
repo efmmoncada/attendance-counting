@@ -29,6 +29,11 @@ submitButton.addEventListener('click', function () {
   var requestBody = JSON.stringify(studentArray)
   request.setRequestHeader('Content-Type', 'application/json')
   request.addEventListener('load', function (event) {
+    if (event.target.status !== 200) {
+      var message = 'There was an error submitting this form'
+    } else {
+      location.href = '/success.html'
+    }
     // do something here
     // tell user their submission was recived.
   })
