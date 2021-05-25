@@ -20,16 +20,26 @@ app.get('*', function (req, res) {
 function storeData(data) {
   var storedArray = JSON.parse(fs.readFileSync('./attendance.json'))
   var submittedArray = data
+  var exists = false;
 
   for (var i = 0; i < submittedArray.length; i++) {
     for (var j = 0; j < storedArray.length; j++) {
       if (submittedArray[i].id === storedArray[j].id) {
         storedArray[j].dates.push(submittedArray[i].dates[0])
+        exists = true
       }
     }
+    if (exists) {
+      exists = false
+      continue
+    }
     var student = submittedArray[i]
-    fs.appendFileSync('./attendance.json', JSON.stringify(student))
+    storedArray.push(student)
   }
+  fs.writeFileSync('./attendance.json', JSON.stringify(storedArray))
+}
+
+function writeToFile(array) {
 
 }
 

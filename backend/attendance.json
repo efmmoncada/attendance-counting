@@ -1,2 +1,26 @@
-[{"id":"111111","firstName":"Emmanuel ","lastName":"Moncada","dates":["2021-05-25"]}]
-{"id":"111111","firstName":"Emmanuel","lastName":"Moncada","dates":["2021-05-18"]}
+[
+    {
+        "id": "111111",
+        "firstName": "Emmanuel ",
+        "lastName": "Moncada",
+        "dates": [
+            "2021-05-10",
+            "2021-05-18",
+            "2021-05-31",
+            "2021-05-19",
+            "2021-05-02"
+        ]
+    },
+    {
+        "id": "222222",
+        "firstName": "Alejandro",
+        "lastName": "Moncada",
+        "dates": ["2021-05-17", "2021-05-24", "2021-05-19", "2021-05-02"]
+    },
+    {
+        "id": "333333",
+        "firstName": "Sandy ",
+        "lastName": "Rojas",
+        "dates": ["2021-05-02"]
+    }
+]
