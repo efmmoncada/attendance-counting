@@ -6,9 +6,9 @@
   },
   "engines": {
     "node": "16.1.0"
-  }
+  },
   "scripts": {
-    "build": "handlebars ../entry.handlebars -f ../frontend/entryTemplate.js",
+    "build": "handlebars ./entry.handlebars -f ./frontend/entryTemplate.js",
     "prestart": "npm run build"
   },
   "devDependencies": {
