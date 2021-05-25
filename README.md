@@ -12,4 +12,4 @@ To run, install dependancies on local machine using `npm install`
 
 Once installed, run server with `npm start`
 
-Once server is running, access be navigating to [localhost::[port]](http://localhost::<port>/) in your browser.
+Once server is running, access by navigating to [localhost::[port]](http://localhost::<port>/) in your browser.
