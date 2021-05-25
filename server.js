@@ -6,15 +6,15 @@ const bodyParser = require('body-parser');
 var app = express()
 var port = process.env.PORT || 3000
 
-app.use(express.static('../frontend'))
+app.use(express.static('./frontend'))
 app.use(bodyParser.json())
 
 app.get('/', function (req, res) {
-  res.status(200).sendFile(path.join(__dirname, '..', 'frontend', 'attendance.html'))
+  res.status(200).sendFile(path.join(__dirname, 'frontend', 'attendance.html'))
 })
 
 app.get('*', function (req, res) {
-  res.status(404).sendFile(path.join(__dirname, '..', 'frontend', '404.html'))
+  res.status(404).sendFile(path.join(__dirname, 'frontend', '404.html'))
 })
 
 function storeData(data) {
