@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Spartan Academy Attendance</title>
+    <title>Spartan Academy Absences</title>
 
     <link rel="stylesheet" href="/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -15,36 +15,27 @@
   <body>
     <div class="heading">
       <img src="hilhi_logo.png" alt="Hilhi Spartan Logo">
-      <h1 class="site-title">Spartan Academy Attendance</h1>
+      <h1 class="site-title">Spartan Academy Absences</h1>
     </div>
 
     <div class="instructs">
-      <p>Input each absent student's information in the form below. If you need
-         more entry's click the add student button at the bottom of the page.
-         Click submit when you are done adding students.</p>
+      <p>Copy and paste all absent student's ID's into the text box below.
+        Each ID number should be on a new line.</p>
     </div>
 
     <div class="form">
       <div class="date-container">
+        <!-- Should we get rid of this and just pull date from internet? -->
         <h2>Today's Date:</h2>
         <input type="date" class="date" placeholder="">
       </div>
 
       <div class="entry">
-        <span>
-          <input type="number" class="id-number" placeholder="ID Number">
-        </span>
-        <span>
-          <input type="text" class="first-name" placeholder="First Name">
-        </span>
-        <span>
-          <input type="text" class="last-name" placeholder="Last Name">
-        </span>
+        <textarea type="text"></textarea>
       </div>
     </div>
-
+    
     <div class="buttons">
-      <button type="button" name="add-entry" id="add-entry-button">Add Student</button>
       <button type="button" name="submit-button" id="submit-button">Submit</button>
     </div>
 

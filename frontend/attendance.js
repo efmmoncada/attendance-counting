@@ -1,42 +1,25 @@
-var addStudentButton = document.getElementById('add-entry-button')
-addStudentButton.addEventListener('click', function () {
-
-  var entryHTML = Handlebars.templates.entry()
-
-  var form = document.getElementsByClassName('form')[0]
-  form.insertAdjacentHTML('beforeend', entryHTML)
-})
-
 var studentArray = []
 var requestURL = '/submit-form'
 var request = new XMLHttpRequest()
 
 var submitButton = document.getElementById('submit-button')
+// seperates input by newlines and stores into an array.
 submitButton.addEventListener('click', function () {
-  var entryArray = document.getElementsByClassName('entry')
   var date = document.getElementsByClassName('date')[0].value
-  for (var i = 0; i < entryArray.length; i++) {
-    var student = {
-      id: entryArray[i].children[0].children[0].value,
-      firstName: entryArray[i].children[1].children[0].value,
-      lastName: entryArray[i].children[2].children[0].value,
-      dates: [date]
-    }
-    studentArray.push(student)
+  var idArray = document.querySelector('textarea').value.replace(/\n+$/, "").split('\n') // gets rid of trailing newlines
+  var data = {
+    date: date,
+    absentStudents: idArray
   }
-  //var content = {studentArray} // do i need to put into an object?
   request.open('POST', requestURL)
-  var requestBody = JSON.stringify(studentArray)
+  var requestBody = JSON.stringify(data)
   request.setRequestHeader('Content-Type', 'application/json')
   request.addEventListener('load', function (event) {
     if (event.target.status !== 200) {
       var message = 'There was an error submitting this form'
     } else {
-      location.href = '/success.html'
+      location.href = '/success.html' // gives confirmation that submission was recieved.
     }
-    // do something here
-    // tell user their submission was recived.
   })
   request.send(requestBody)
-
 })
