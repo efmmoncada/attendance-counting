@@ -19,13 +19,14 @@ app.get('*', function (req, res) {
 
 function storeData(data) {
   var storedArray = JSON.parse(fs.readFileSync('./attendance.json'))
-  var submittedArray = data
+  var date = data.date
+  var submittedArray = data.absentStudents
   var exists = false;
 
   for (var i = 0; i < submittedArray.length; i++) {
     for (var j = 0; j < storedArray.length; j++) {
-      if (submittedArray[i].id === storedArray[j].id) {
-        storedArray[j].dates.push(submittedArray[i].dates[0])
+      if (submittedArray[i] === storedArray[j].id) {
+        storedArray[j].datesAbsent.push(date)
         exists = true
       }
     }
@@ -33,28 +34,38 @@ function storeData(data) {
       exists = false
       continue
     }
-    var student = submittedArray[i]
+    var student = {
+      id: submittedArray[i],
+      datesAbsent: [date]
+    }
     storedArray.push(student)
   }
   fs.writeFileSync('./attendance.json', JSON.stringify(storedArray))
-}
-
-function writeToFile(array) {
-
 }
 
 app.post('/submit-form', function (req, res) {
   if (req.body) {
     //console.log(req.body)
     storeData(req.body)
-    //fs.writeFileSync('./attendance.json', JSON.stringify(req.body))
     res.status(200).send('Form submited successfully.')
   } else {
     res.status(400).send("Requests to this path must " +
-      "contain a JSON body with an ID, first name" +
-      "and last name.")
+      "contain a JSON body with a date and an array of ID numbers")
   }
+})
 
+app.post('/studentlookup/:id', (req, res) => {
+  var queryID = req.params.id
+
+  var studentArray  = JSON.parse(fs.readFileSync('./attendance.json'))
+  for (var i = 0; i < studentArray.length; i++) {
+    if (queryID === studentArray[i].id) {
+      res.status(200).json(studentArray[i])
+      return
+    }
+  }
+  res.status(204).send()
+  return
 })
 
 app.listen(port, function () {
