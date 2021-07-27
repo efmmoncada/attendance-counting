@@ -123,6 +123,14 @@ button {
   margin: 0 auto;
   width: 50%;
   height: 10em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search {
+  display: flex;
+  align-items: center;
 }
 
 .search-box {
@@ -133,4 +141,30 @@ button {
   box-sizing: border-box;
   border: 2.5px solid black;
   font-size: 1.5em;
+}
+
+.results {
+  background-color: white;
+  margin: 2em auto;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  width: 200px;
+}
+
+.id {
+  float: left;
+  font-weight: bold;
+}
+
+.total {
+  float: right;
+}
+
+.hidden {
+  display: none;
+}
+
+.invalid {
+  border: 2px solid red;
 }
