@@ -9,7 +9,7 @@
     "node": "16.1.0"
   },
   "scripts": {
-    "build": "handlebars ./entry.handlebars -f ./frontend/entryTemplate.js",
+    "build": "handlebars ./entry.handlebars -f ./frontend/entryTemplate.js && handlebars ./frontend/results.handlebars -f ./frontend/resultsTemplate.js",
     "prestart": "npm run build"
   },
   "devDependencies": {
