@@ -16,7 +16,7 @@ searchButton.addEventListener('click', (e) => {
     request.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         searchBox.classList.remove('invalid')
-        var student = JSON.parse(this.responseText); // student contains obj with id and array
+        var student = JSON.parse(this.responseText) // student contains obj with id and array
         var resultsContext = {
           id: student.id,
           total: student.datesAbsent.length,
@@ -30,7 +30,7 @@ searchButton.addEventListener('click', (e) => {
       else if (this.readyState == 4 && this.status == 204) {
         searchBox.classList.remove('invalid')
         // handles a student with no absent dates
-        console.log('has not been absent.');
+        alert('This student has not been absent')
       }
     }
     // handle no responce recived from server
